@@ -33,7 +33,7 @@ robot = parseURDF(joinpath(module_path, "URDFs/franka_description/urdfs/fr3.urdf
 # gravity compensation. We also add some damping to each joint to make the simulation more realistic
 # so that the robot does not oscillate indefinitely.
 add_gravity_compensation!(robot, VMRobotControl.DEFAULT_GRAVITY)
-for i in 1:7
+for i in 1:7    # add damping
     add_coordinate!(robot, JointSubspace("fr3_joint$i");    id="J$i")
     add_component!(robot, LinearDamper(0.1, "J$i");         id="Joint damper $i")
 end;
