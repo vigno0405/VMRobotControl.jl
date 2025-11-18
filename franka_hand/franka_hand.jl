@@ -100,7 +100,7 @@ add_component!(vm, LinearDamper(100.0, "CartYPosition");                        
 # Add the coordinate and components
 # TODO: PALM IS NOT THE RIGHT ONE!!!
 
-add_coordinate!(robot, FrameOrigin("Palm_1"); id="palm_origin")                    # to the robot
+add_coordinate!(robot, FrameOrigin("Middle_Base_1"); id="palm_origin")                    # to the robot
 add_coordinate!(vms, CoordDifference(".robot.palm_origin", ".virtual_mechanism.CartYPosition"), id="palm_to_cart")
 
 add_component!(vms, TanhSpring("palm_to_cart"; max_force=10.0, stiffness=K_pos);      id="palm_spring")
