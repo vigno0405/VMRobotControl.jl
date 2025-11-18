@@ -93,7 +93,7 @@ frame_y = add_frame!(vm, "SlideY")
 add_joint!(vm, Prismatic(SVector(0., 1., 0.));
     parent=frame_x, child=frame_y, id="PrismaticY")
 add_coordinate!(vm, JointSubspace("PrismaticY");                                id="CartYDistance")
-add_coordinate!(vm, FramePoint(frame_y, SVector(0., 0., target_pos.val[][3])),  id="CartYPosition")
+add_coordinate!(vm, FramePoint(frame_y, SVector(0., 0., target_pos.val[][3].+0.025)),  id="CartYPosition")
 add_component!(vm, LinearInerter(1.0, "CartYPosition");                         id="CartYInertance")   # virtual mass
 add_component!(vm, LinearDamper(100.0, "CartYPosition");                        id="CartYDamper")
 
@@ -103,7 +103,7 @@ add_component!(vm, LinearDamper(100.0, "CartYPosition");                        
 add_coordinate!(robot, FrameOrigin("Middle_Base_1"); id="palm_origin")                    # to the robot
 add_coordinate!(vms, CoordDifference(".robot.palm_origin", ".virtual_mechanism.CartYPosition"), id="palm_to_cart")
 
-add_component!(vms, TanhSpring("palm_to_cart"; max_force=10.0, stiffness=K_pos);      id="palm_spring")
+add_component!(vms, TanhSpring("palm_to_cart"; max_force=10.0, stiffness=K_pos/5);      id="palm_spring")
 add_component!(vms, LinearDamper(D_pos, "palm_to_cart");                         id="palm_damper")
 
 # Simulation setup
