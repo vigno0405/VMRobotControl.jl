@@ -70,7 +70,7 @@ add_coordinate!(vms, CoordDifference(".robot.TCP_position", ".virtual_mechanism.
 add_coordinate!(vms, QuaternionAttitude(".robot.fr3_link8", target_rot);                            id="orient_error")
 
 # 4. Spring/damper on the errors
-add_component!(vms, TanhSpring("pos_error"; max_force=50.0, stiffness=50.0);          id="pos_spring")
+add_component!(vms, TanhSpring("pos_error"; max_force=50.0, stiffness=20.0);          id="pos_spring")
 add_component!(vms, LinearDamper(10.0, "pos_error");                                 id="pos_damper")
 add_component!(vms, TanhSpring("orient_error"; max_force=50.0, stiffness=10.0);   id="orient_spring")
 add_component!(vms, LinearDamper(0.1, "orient_error");                       id="orient_damper")
@@ -96,7 +96,7 @@ add_component!(vm, LinearDamper(100.0, "CartYPosition");                        
 add_coordinate!(robot, FrameOrigin("Middle_Base_1"); id="palm_origin")                    # to the robot
 add_coordinate!(vms, CoordDifference(".robot.palm_origin", ".virtual_mechanism.CartYPosition"), id="palm_to_cart")
 
-add_component!(vms, TanhSpring("palm_to_cart"; max_force=5.0, stiffness=5.0);      id="palm_spring")
+add_component!(vms, TanhSpring("palm_to_cart"; max_force=5.0, stiffness=1.0);      id="palm_spring")
 add_component!(vms, LinearDamper(1.0, "palm_to_cart");                         id="palm_damper")
 
 add_coordinate!(robot, FramePoint("Thumb_Distal_1", SVector(0., 0., 0.)), id="finger1")

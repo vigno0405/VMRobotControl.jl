@@ -77,14 +77,25 @@ for i in 1:8
     push!(collision_frames, "fr3_link$i")
 end
 
+# Add hand frames
+hand_frames = [
+    "Thumb_base_1", "Thumb_Proximal_1", "Thumb_Middle_1", "Thumb_Distal_1",
+    "Index_Base_1", "Index_Proximal_1", "Index_Middle_1", "Index_Distal_1",
+    "Middle_Base_1", "Middle_Proximal_1", "Middle_Middle_1", "Middle_Distal_1",
+    "Ring_Base_1", "Ring_Proximal_1", "Ring_Middle_1", "Ring_Distal_1",
+    "Pinky_Base_1", "Pinky_Proximal_1", "Pinky_Middle_1", "Pinky_Distal_1",
+    "Palm_1"
+]
+append!(collision_frames, hand_frames)
+
 for id in collision_frames
     add_coordinate!(robot, FrameOrigin("$id"); id="$id origin")
     add_coordinate!(vms, CoordDifference(".robot.$id origin", ".virtual_mechanism.obstacle"); id="$id to obstacle")
-    add_component!(vms, GaussianSpring("$id to obstacle"; max_force=-10.0, width=0.05); id="repulsive spring $id")
+    add_component!(vms, GaussianSpring("$id to obstacle"; max_force=-100.0, width=0.05); id="repulsive spring $id")
 end
 
 # Setup simulation
-target_pos(t) = SVector(0.5, 0.0, 0.3) + SVector(0.2*cos(t), 0.0, 0.2*sin(t))
+target_pos(t) = SVector(0.4, 0.0, 0.3) + SVector(0.2*cos(t), 0.0, 0.2*sin(t))
 target_vel(t) = SVector(-0.2*sin(t), 0.0, 0.2*cos(t))
 
 function f_setup(cache)
