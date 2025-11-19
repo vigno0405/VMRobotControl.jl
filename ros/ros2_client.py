@@ -17,7 +17,11 @@ from std_msgs.msg import Float64MultiArray, MultiArrayDimension
 from sensor_msgs.msg import JointState
 
 ####################################################################################################
-# ROS 2 Manager
+# ROS 2 Manager:
+# i. Subscribes to JointStates messages (robot's current position and velocities)
+# ii. Publishes Float64MultiArray messages (torque commands to the robot)
+# iii. Defines best Quality of Service for low-latency control
+# iv. Threading for managing messages between controller and the robot
 
 class ROSManager(Node):
     def __init__(self, subscriber_topic, publisher_topic, joint_command_size, joint_state_size):
@@ -58,7 +62,11 @@ class ROSManager(Node):
             return msg
 
 ####################################################################################################
-# IPC Manager
+# IPC Manager:
+# i. Creates TCP connection for control commands in state machine (START, WARMUP_DONE, STOP)
+# ii. Creates UDP (data channel) for high-frequency data exchange
+# iii. Receives torque commands from Julia
+# iv. Sends joint states to Julia
 
 STATE_WAITING = 0
 STATE_WARMUP = 1
@@ -118,7 +126,7 @@ class IPCManager:
             tcp_server.close()
             raise Exception("ROS was shut down.")
             
-        command_socket.setblocking(False)
+        command_socket.setblocking(False)   # non-blocking socket to preserve the frequency
         tcp_server.close()
         return command_socket
 
@@ -156,7 +164,14 @@ class IPCManager:
             pass
 
 ####################################################################################################
-# Control Loops
+# Control Loops:
+# i. STATE MACHINE: four states:
+#           1. WAITING: Julia not ready yet
+#           2. WARMUP: Julia initialization with zero torque
+#           3. ACTIVE: real control loop
+#           4. STOPPED: controller shuts down
+# ii. Bridges ROS2 (robot hardware) with Julia at 1000 Hz
+# iii. Exchanges torques with joint states
 
 def forward_state_to_julia(socket_manager, ros_manager):
     msg = ros_manager.get_new_msg()
