@@ -27,10 +27,37 @@ robot = parseURDF(joinpath(module_path, "/home/vigno/github/VMRobotControl.jl/UR
 # gravity compensation. We also add some damping to each joint to make the simulation more realistic
 # so that the robot does not oscillate indefinitely.
 add_gravity_compensation!(robot, VMRobotControl.DEFAULT_GRAVITY)
-for i in 1:7    # add damping
-    add_coordinate!(robot, JointSubspace("fr3_joint$i");    id="J$i")
-    add_component!(robot, LinearDamper(0.1, "J$i");         id="Joint damper $i")
-end;
+for i in 1:7
+    add_coordinate!(robot, JointSubspace("fr3_joint$i"); id="J$i")
+    add_component!(robot, LinearDamper(0.1, "J$i"); id="Joint damper $i")
+end
+hand_joints = [
+    "Thumb_CMC1", "Thumb_CMC2", "Thumb_MCP", "Thumb_IP",
+    "Index_MCP_Spread", "Index_MCP", "Index_PIP", "Index_DIP",
+    "Middle_MCP_Spread", "Middle_MCP", "Middle_PIP", "Middle_DIP",
+    "Ring_MCP_Spread", "Ring_MCP", "Ring_PIP", "Ring_DIP",
+    "Pinky_MCP_Spread", "Pinky_MCP", "Pinky_PIP", "Pinky_DIP",
+    "Wrist_Pitch", "Wrist_Yaw"
+]
+for (i, joint) in enumerate(hand_joints)
+    add_coordinate!(robot, JointSubspace(joint); id="H$i")
+    add_component!(robot, LinearDamper(0.05, "H$i"); id="Hand damper $i")  # Lower damping for fingers
+end
+
+# Add joint limit springs
+joint_limits = cfg.joint_limits
+for joint_id in keys(joints(robot))
+    limits = joint_limits[joint_id]
+    isnothing(limits) && continue
+    add_coordinate!(robot, JointSubspace(joint_id); id="$(joint_id)_coord")
+    @assert ~isnothing(limits.lower) && ~isnothing(limits.upper)
+    add_deadzone_springs!(robot, 100.0, (limits.lower+0.1, limits.upper-0.1), "$(joint_id)_coord")
+    
+    # Use smaller damping for hand joints
+    damping = startswith(string(joint_id), "fr3_") ? 0.01 : 0.002
+    add_component!(robot, LinearDamper(damping, "$(joint_id)_coord"); id="$(joint_id)_damper")
+end
+
 
 # Building the Virtual Mechanism System. It will control the position of the end effector of the robot.
 # Remember that it can be used for underactuated systems as well.
@@ -107,7 +134,7 @@ function f_control(cache, t, sm::StateMachine, extra)
 end
 
 # Simulation setup
-tspan = (0., 15.)
+tspan = (0., 30.)
 q = ([0.0, 0.3, 0.0, -1.8, 0.0, π/2, 0.0, zeros(22)...], Float64[])
 q̇ = ([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, zeros(22)...], Float64[])
 g = VMRobotControl.DEFAULT_GRAVITY
