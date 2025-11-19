@@ -150,10 +150,10 @@ sol = solve(prob, Tsit5(); maxiters=1e5, abstol=1e-6, reltol=1e-6)
 # Visualization
 fig = Figure(size = (1500, 1500), figure_padding=0)
 display(fig)
-ls = LScene(fig[1, 1]; show_axis=true)
+ls = LScene(fig[1, 1]; show_axis=false)
 cam = cam3d!(ls, camera=:perspective, center=false)
-cam.lookat[] = [0.24, -0.02, 0.37]
-cam.eyeposition[] = [0.54, 0.76, 0.53]
+cam.lookat[] = [0.24, -0.02, 0.37]          # point where the camera is looking
+cam.eyeposition[] = [0.8, 1.2, 0.8]         # position of the camera
 
 plotting_t = Observable(0.0)
 plotting_kcache = Observable(new_kinematics_cache(compile(robot)))
