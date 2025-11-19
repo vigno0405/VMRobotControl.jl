@@ -148,7 +148,7 @@ prob = get_ode_problem(dcache, g, q, q̇, tspan; f_setup, f_control)
 sol = solve(prob, Tsit5(); maxiters=1e5, abstol=1e-6, reltol=1e-6)
 
 # Visualization
-fig = Figure(size = (1500, 1500), figure_padding=0)
+fig = Figure(size = (1440, 1440), figure_padding=0)
 display(fig)
 ls = LScene(fig[1, 1]; show_axis=false)
 cam = cam3d!(ls, camera=:perspective, center=false)
