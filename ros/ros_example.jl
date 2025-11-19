@@ -4,18 +4,19 @@ include("ROS.jl")
 # Load robot model
 module_path = joinpath(splitpath(splitdir(pathof(VMRobotControl))[1])[1:end-1])
 robot = parseURDF(joinpath(module_path, "URDFs/sciurus17_description/urdf/sciurus17.urdf"))
-# Include gravity compensation done by robot software (not done by our controller)
+
+# Include gravity compensation done by robot software (not done by our controller) - so we do not take it into account
 add_gravity_compensation!(robot, DEFAULT_GRAVITY) 
 
 # Build our virtual mechanism controller
 vms = VirtualMechanismSystem("sciurus", robot)
-add_coordinate!(vms, ReferenceCoord(Ref(SVector(.3, 0.1, 0.2))); id="l_tgt")
+add_coordinate!(vms, ReferenceCoord(Ref(SVector(.3, 0.1, 0.2))); id="l_tgt")	# left one
 add_coordinate!(vms, FramePoint(".robot.l_link7", SVector(0., 0., 0.)); id="l_hand")
 add_coordinate!(vms, CoordDifference("l_tgt", "l_hand"), id="l_err")
 add_component!(vms, TanhSpring("l_err"; stiffness=200.0, max_force=5.0); id="l_spring")
 add_component!(vms, LinearDamper(5., "l_err"); id="l_damper")
 
-add_coordinate!(vms, ReferenceCoord(Ref(SVector(.3, 0.1, 0.2))); id="r_tgt")
+add_coordinate!(vms, ReferenceCoord(Ref(SVector(.3, 0.1, 0.2))); id="r_tgt")	# right one
 add_coordinate!(vms, FramePoint(".robot.r_link7", SVector(0., 0., 0.)); id="r_hand")
 add_coordinate!(vms, CoordDifference("r_tgt", "r_hand"), id="r_err")
 add_component!(vms, TanhSpring("r_err"; stiffness=200.0, max_force=5.0); id="r_spring")
