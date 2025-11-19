@@ -36,6 +36,3 @@ scatter!(ls, kcache, all_frame_ids; color=:red, markersize=50)
 text!(ls, kcache, all_frame_ids; text=all_frames, color=:blue, fontsize=20)
 
 display(fig)
-
-# Save the figure
-save("robot_frames.png", fig)
