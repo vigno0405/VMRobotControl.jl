@@ -39,5 +39,5 @@ end
 cvms = compile(vms)
 qᵛ = Float64[]
 with_rospy_connection(Sockets.localhost, ROSPY_LISTEN_PORT, 21, 42) do connection
-    ros_vm_controller(connection, cvms, qᵛ; f_control, f_setup, E_max=2.0)
+    ros_vm_controller(connection, cvms, qᵛ; f_control, f_setup, E_max=20.0)
 end
