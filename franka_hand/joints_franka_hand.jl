@@ -9,7 +9,7 @@ using UUIDs   # for 3D meshes
 catch e
 end
 
-cfg = URDFParserConfig(suppress_warnings=true) # suppress parsing warnings
+cfg = URDFParserConfig(suppress_warnings=true, error_on_not_recognized=false) # suppress parsing warnings
 mechanism = parseURDF("/home/vigno/github/VMRobotControl.jl/URDFs/franka_hand_description/panda_adapt_hand_gazebo.urdf", cfg)
 m = compile(mechanism)
 

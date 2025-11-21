@@ -1,0 +1,629 @@
+<!-- ====================== GAZEBO SPECIFIC ELEMENTS ====================== -->
+
+  <gazebo reference="fr3_link0">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="fr3_link1">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="fr3_link2">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="fr3_link3">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="fr3_link4">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="fr3_link5">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="fr3_link6">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="fr3_link7">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="base_link">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Palm_1">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Thumb_Distal_1">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="Index_Distal_1">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="Middle_Distal_1">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="Ring_Distal_1">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="Pinky_Distal_1">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <!-- ====================== TRANSMISSIONS ====================== -->
+
+  <transmission name="fr3_joint1_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr3_joint1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr3_joint1_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="fr3_joint2_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr3_joint2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr3_joint2_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="fr3_joint3_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr3_joint3">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr3_joint3_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="fr3_joint4_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr3_joint4">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr3_joint4_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="fr3_joint5_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr3_joint5">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr3_joint5_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="fr3_joint6_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr3_joint6">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr3_joint6_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="fr3_joint7_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr3_joint7">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr3_joint7_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Thumb_CMC1_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Thumb_CMC1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Thumb_CMC1_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Thumb_CMC2_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Thumb_CMC2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Thumb_CMC2_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Thumb_MCP_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Thumb_MCP">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Thumb_MCP_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Pinky_MCP_Spread_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Pinky_MCP_Spread">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Pinky_MCP_Spread_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Pinky_MCP_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Pinky_MCP">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Pinky_MCP_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Pinky_PIP_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Pinky_PIP">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Pinky_PIP_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Middle_MCP_Spread_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Middle_MCP_Spread">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Middle_MCP_Spread_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Middle_MCP_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Middle_MCP">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Middle_MCP_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Middle_PIP_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Middle_PIP">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Middle_PIP_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Index_MCP_Spread_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Index_MCP_Spread">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Index_MCP_Spread_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Index_MCP_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Index_MCP">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Index_MCP_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Index_PIP_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Index_PIP">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Index_PIP_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Ring_MCP_Spread_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Ring_MCP_Spread">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Ring_MCP_Spread_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Ring_MCP_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Ring_MCP">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Ring_MCP_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Ring_PIP_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Ring_PIP">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Ring_PIP_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Wrist_Pitch_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Wrist_Pitch">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Wrist_Pitch_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="Wrist_Yaw_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Wrist_Yaw">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="Wrist_Yaw_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- ====================== GAZEBO ROS2 CONTROL PLUGIN ====================== -->
+  <gazebo>
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>$(find your_package)/config/franka_hand_controllers.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+  <!-- ros2_control tag for Gazebo Harmonic -->
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+    <joint name="fr3_joint1">
+      <command_interface name="effort">
+        <param name="min">-87</param>
+        <param name="max">87</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="fr3_joint2">
+      <command_interface name="effort">
+        <param name="min">-87</param>
+        <param name="max">87</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="fr3_joint3">
+      <command_interface name="effort">
+        <param name="min">-87</param>
+        <param name="max">87</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="fr3_joint4">
+      <command_interface name="effort">
+        <param name="min">-87</param>
+        <param name="max">87</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="fr3_joint5">
+      <command_interface name="effort">
+        <param name="min">-12</param>
+        <param name="max">12</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="fr3_joint6">
+      <command_interface name="effort">
+        <param name="min">-12</param>
+        <param name="max">12</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="fr3_joint7">
+      <command_interface name="effort">
+        <param name="min">-12</param>
+        <param name="max">12</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Thumb_CMC1">
+      <command_interface name="effort">
+        <param name="min">-5</param>
+        <param name="max">5</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Thumb_CMC2">
+      <command_interface name="effort">
+        <param name="min">-5</param>
+        <param name="max">5</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Thumb_MCP">
+      <command_interface name="effort">
+        <param name="min">-5</param>
+        <param name="max">5</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Pinky_MCP_Spread">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Pinky_MCP">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Pinky_PIP">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Middle_MCP_Spread">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Middle_MCP">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Middle_PIP">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Index_MCP_Spread">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Index_MCP">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Index_PIP">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Ring_MCP_Spread">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Ring_MCP">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Ring_PIP">
+      <command_interface name="effort">
+        <param name="min">-2</param>
+        <param name="max">2</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Wrist_Pitch">
+      <command_interface name="effort">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Wrist_Yaw">
+      <command_interface name="effort">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
+  <!-- Joint State Publisher -->
+  <gazebo>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="joint_state_publisher">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>~/out:=joint_states</remapping>
+      </ros>
+      <update_rate>100</update_rate>
+      <joint_name>fr3_joint1</joint_name>
+      <joint_name>fr3_joint2</joint_name>
+      <joint_name>fr3_joint3</joint_name>
+      <joint_name>fr3_joint4</joint_name>
+      <joint_name>fr3_joint5</joint_name>
+      <joint_name>fr3_joint6</joint_name>
+      <joint_name>fr3_joint7</joint_name>
+      <joint_name>Thumb_CMC1</joint_name>
+      <joint_name>Thumb_CMC2</joint_name>
+      <joint_name>Thumb_MCP</joint_name>
+      <joint_name>Pinky_MCP_Spread</joint_name>
+      <joint_name>Pinky_MCP</joint_name>
+      <joint_name>Pinky_PIP</joint_name>
+      <joint_name>Middle_MCP_Spread</joint_name>
+      <joint_name>Middle_MCP</joint_name>
+      <joint_name>Middle_PIP</joint_name>
+      <joint_name>Index_MCP_Spread</joint_name>
+      <joint_name>Index_MCP</joint_name>
+      <joint_name>Index_PIP</joint_name>
+      <joint_name>Ring_MCP_Spread</joint_name>
+      <joint_name>Ring_MCP</joint_name>
+      <joint_name>Ring_PIP</joint_name>
+      <joint_name>Wrist_Pitch</joint_name>
+      <joint_name>Wrist_Yaw</joint_name>
+      <joint_name>Thumb_IP</joint_name>
+      <joint_name>Pinky_DIP</joint_name>
+      <joint_name>Middle_DIP</joint_name>
+      <joint_name>Index_DIP</joint_name>
+      <joint_name>Ring_DIP</joint_name>
+    </plugin>
+  </gazebo>
+
+</robot>

@@ -18,7 +18,7 @@ using VMRobotControl
 # more realistic, so that the robot does not oscillate indefinitely.
 # Finally, we add the TCPs for the left and right arms of the robot, which will be used for the
 # reaching controller.
-cfg = URDFParserConfig(; suppress_warnings=true)
+cfg = URDFParserConfig(; suppress_warnings=true, error_on_not_recognized=false)
 module_path = joinpath(splitpath(splitdir(pathof(VMRobotControl))[1])[1:end-1])
 robot = parseURDF(joinpath(module_path, "URDFs/sciurus17_description/urdf/sciurus17.urdf"), cfg)
 # Add joint limit springs

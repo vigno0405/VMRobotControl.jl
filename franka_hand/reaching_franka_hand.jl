@@ -14,7 +14,7 @@ try
 catch
 end
 
-cfg = URDFParserConfig(;suppress_warnings=true)
+cfg = URDFParserConfig(suppress_warnings=true, error_on_not_recognized=false)
 module_path = joinpath(splitpath(splitdir(pathof(VMRobotControl))[1])[1:end-1])
 robot = parseURDF(joinpath(module_path, "/home/vigno/github/VMRobotControl.jl/URDFs/franka_hand_description/panda_adapt_hand.urdf"), cfg)
 
