@@ -10,7 +10,7 @@ catch e
 end
 
 cfg = URDFParserConfig(suppress_warnings=true) # suppress parsing warnings
-mechanism = parseURDF("/home/vigno/github/VMRobotControl.jl/URDFs/franka_hand_description/panda_adapt_hand.urdf", cfg)
+mechanism = parseURDF("/home/vigno/github/VMRobotControl.jl/URDFs/franka_hand_description/panda_adapt_hand_gazebo.urdf", cfg)
 m = compile(mechanism)
 
 # Observable kinematics cache: updates plots automatically
